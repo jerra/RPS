@@ -1,3 +1,14 @@
+document.addEventListener('DOMContentLoaded', function() {
+    const btnOne = document.createElement("button").textContent("Rock");
+    const div = document.createElement("div");
+    document.body.appendChild(div);
+    div.appendChild(btnOne);
+});
+
+//const btnTwo = document.createElement("button").addEventListener("click", playRound(humanSelection, computerSelection));
+//const btnThree = document.createElement("button").addEventListener("click", playRound(humanSelection, computerSelection));
+
+
 // Get computer choice
 function getComputerChoice(n) {
     let num = Math.floor(Math.random() * n);
@@ -12,7 +23,6 @@ function getComputerChoice(n) {
     }
 
     return choice;
-    //console.log(choice);
 }
 
 // Get user choice
@@ -20,7 +30,6 @@ function getHumanChoice() {
     let userInput = prompt("Rock, Paper, or Scissors?");
 
     return userInput;
-    //console.log(userInput);
 }
 
 let humanScore = 0;
@@ -55,13 +64,20 @@ function playRound(humanChoice, computerChoice) {
 
 function playGame() {
 
-    for (i = 0; i < 5; i++) {
+    const humanSelection = getHumanChoice(1);
+    const computerSelection = getComputerChoice(3);
+
+    // Create 3 Buttons
+
+    div.textContent = `Final Scores:\nHuman: ${humanScore}\nComputer: ${computerScore}`;
+
+    /*for (i = 0; i < 5; i++) {
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice(3);
         let result = playRound(humanSelection, computerSelection);
-    }
+    }*/
     
-    console.log(`Final Scores:\nHuman: ${humanScore}\nComputer: ${computerScore}`);
+    //console.log(`Final Scores:\nHuman: ${humanScore}\nComputer: ${computerScore}`);
 }
 
 playGame();
